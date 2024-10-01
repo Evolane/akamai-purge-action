@@ -16,6 +16,7 @@ inputs:
   network:
     description: 'Network'
     required: true
+    default: 'production'
 runs:
   using: 'docker'
   image: 'Dockerfile'
