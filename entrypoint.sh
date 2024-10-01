@@ -50,7 +50,7 @@ for word in ${_PURGE_REF}
 do
 	PURGECOMMAND="${PURGECOMMAND} ${_CLI_OPT} '$word'"
 done
-echo "akamai purge ${_PURGE_COMMAND} $PURGECOMMAND"
+echo "akamai purge ${_CLI_COMMAND} ${_NETWORK} $PURGECOMMAND"
 
 # Create /root/.edgerc file from env variable
 echo -e "${EDGERC}" > /root/.edgerc
