@@ -1,10 +1,7 @@
-<p align="center">
-  <img alt="Akamai logo" width="400" height="400" src="https://www.eiseverywhere.com/file_uploads/8fca94ae15da82d17d76787b3e6a987a_logo_akamai-developer-experience-2-OL-RGB.png"/>
-  <h3 align="center">GitHub Action to Purge Akamai Cache 🗑️</h3>
-  <p align="center">
-    <img alt="GitHub license" src="https://badgen.net/github/license/jdmevo123/akamai-purge-action?cache=300&color=green"/>
-  </p>
-</p>
+This action is a fork of the [Akamai Purge Action](https://github.com/jdmevo123/akamai-purge-action). 
+
+We addressed several issues from the original, such as the limitation of only selecting a single reference, which made it difficult to purge multiple CP codes simultaneously.
+
 
 # Purge Akamai Cache   
 
@@ -43,8 +40,8 @@ Type of purge required:
 - url : Purge by url
 
 ### `ref`
-**Required** 
-CPCode, Cache Tag or url's to purge
+**Required**  
+One or more CP codes, cache tags, or URLs to purge, separated by spaces.
 
 ## `workflow.yml` Example
 
@@ -56,9 +53,9 @@ Place in a `.yml` file such as this one in your `.github/workflows` folder. [Ref
       env:
         EDGERC: ${{ secrets.EDGERC }}
       with:
-        command: 'invalidate' 
+        command: 'delete' 
         type: 'cpcode' #valid inputs are 'cpcode', 'url' and 'tag'
-        ref: '12345' #input url's as 'https://www.example.com/ https://www.example1.com/'
+        ref: '12345'  # Input one or more values, separated by a space. Ensure you use quotes here.
         network: 'production'
 ```
 ## License
