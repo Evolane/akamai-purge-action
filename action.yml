@@ -1,6 +1,6 @@
 name: "Akamai Cache Purge"
 description: "GitHub Action to Purge cache via Akamai API's"
-author: jdmevo123
+author: Evolane
 inputs:
   command:
     description:  'Purge command (invalidate, delete)'
@@ -27,4 +27,4 @@ runs:
     - ${{ inputs.network }}
 branding:
   color: orange
-  icon: trash-2
+  icon: archive
