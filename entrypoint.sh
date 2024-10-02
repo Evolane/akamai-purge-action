@@ -45,20 +45,25 @@ case ${_PURGE_NETWORK} in
   ;;
 esac
 
-PURGECOMMAND=""
-for word in ${_PURGE_REF}
-do
-	PURGECOMMAND="${PURGECOMMAND} ${_CLI_OPT} '$word'"
-done
-echo "akamai purge ${_CLI_COMMAND} ${_NETWORK} $PURGECOMMAND"
-
 # Create /root/.edgerc file from env variable
 echo -e "${EDGERC}" > /root/.edgerc
 
-# Send purge request
-akamai purge \
+for word in ${_PURGE_REF}
+do
+  echo "akamai purge \
   --edgerc /root/.edgerc \
   --section ccu \
   ${_CLI_COMMAND} \
   ${_NETWORK} \
-  $PURGECOMMAND
+  ${_CLI_OPT} \
+  $word"
+
+  akamai purge \
+  --edgerc /root/.edgerc \
+  --section ccu \
+  ${_CLI_COMMAND} \
+  ${_NETWORK} \
+  ${_CLI_OPT} \
+  $word
+done
+
