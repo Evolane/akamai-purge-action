@@ -48,7 +48,7 @@ esac
 # Create /root/.edgerc file from env variable
 echo -e "${EDGERC}" > /root/.edgerc
 
-for word in ${_PURGE_REF}
+for REF in ${_PURGE_REF}
 do
   echo "akamai purge \
   --edgerc /root/.edgerc \
@@ -56,7 +56,7 @@ do
   ${_CLI_COMMAND} \
   ${_NETWORK} \
   ${_CLI_OPT} \
-  $word"
+  $REF"
 
   akamai purge \
   --edgerc /root/.edgerc \
@@ -64,6 +64,6 @@ do
   ${_CLI_COMMAND} \
   ${_NETWORK} \
   ${_CLI_OPT} \
-  $word
+  $REF
 done
 
