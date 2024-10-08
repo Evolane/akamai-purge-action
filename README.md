@@ -49,7 +49,7 @@ Place in a `.yml` file such as this one in your `.github/workflows` folder. [Ref
 
 ```yaml
 - name: Clear Cache
-      uses: jdmevo123/akamai-purge-action@1.7
+      uses: Evolane/akamai-purge-action@1.0
       env:
         EDGERC: ${{ secrets.EDGERC }}
       with:
